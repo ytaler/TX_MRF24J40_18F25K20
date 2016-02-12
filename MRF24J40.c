@@ -96,8 +96,9 @@ void Init_MRF24J40(void) {
     SetShortRAMAddress(PANIDL, PAN_ID[0]); // set Pan ID
     SetShortRAMAddress(PANIDH, PAN_ID[1]); // set Pan ID
 
-    
+    INDICADOR = 1;
     while((GetLongRAMAddress(RFSTATE)&0xA0) != 0xA0);	// wait till RF state machine in RX mode
+    INDICADOR = 0;
 
     /*
     bit 7-4 BATTH<3:0>: Battery Low-Voltage Threshold bits (1)
